@@ -1,0 +1,7 @@
+# ide
+*.iml
+
+# js
+node_modules
+# ts
+dist/tsconfig.tsbuildinfo

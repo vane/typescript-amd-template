@@ -1,0 +1,50 @@
+{
+  "name": "typescript-amd-template",
+  "version": "1.0.0",
+  "description": "Template for typescript systemjs multiple scripts loader with dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-system": "copyfiles -u 1 node_modules/systemjs/dist/*.js node_modules/systemjs/dist/**/*.js  dist/",
+    "copy": "copyfiles -u 1 src/*.html src/*.js src/**/*.html dist/",
+    "clean": "rm -rf dist",
+    "dist": "tsc && npm run copy-system && npm run copy",
+    "dist-clean": "npm run clean && npm run dist",
+    "tsc-incremental": "tsc --incremental",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "tsc-incremental": {
+      "patterns": ["src"],
+      "extensions": ["ts"],
+      "delay": 1000
+    },
+    "copy": {
+      "patterns": ["src"],
+      "extensions": ["js", "html"],
+      "delay": 1000
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vane/typescript-amd-template.git"
+  },
+  "keywords": [
+    "typescript",
+    "amd",
+    "systemjs",
+    "template"
+  ],
+  "author": "Michal Szczepanski <michal@vane.pl>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/vane/typescript-amd-template/issues"
+  },
+  "homepage": "https://github.com/vane/typescript-amd-template#readme",
+  "devDependencies": {
+    "copyfiles": "^2.2.0",
+    "npm-watch": "^0.6.0",
+    "systemjs": "^6.3.1",
+    "typescript": "^3.8.3"
+  }
+}
